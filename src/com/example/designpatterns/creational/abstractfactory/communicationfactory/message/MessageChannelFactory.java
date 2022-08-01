@@ -1,14 +1,17 @@
-package com.example.designpatterns.creational.factory;
+package com.example.designpatterns.creational.abstractfactory.communicationfactory.message;
 
-public class GetMessageFactory {
+import com.example.designpatterns.creational.abstractfactory.communicationfactory.AbstractChannelFactory;
+import com.example.designpatterns.creational.abstractfactory.communicationfactory.calling.CallingChannel;
+
+public class MessageChannelFactory implements AbstractChannelFactory {
 
     private String channelName;
 
-    public GetMessageFactory(String channelName) {
+    public MessageChannelFactory(String channelName) {
         this.channelName = channelName;
     }
 
-    public GetMessageFactory() {
+    public MessageChannelFactory() {
     }
 
     public String getChannelName() {
@@ -19,6 +22,7 @@ public class GetMessageFactory {
         this.channelName = channelName;
     }
 
+    @Override
     public MessageChannel getMessageChannel(){
         switch (this.channelName){
             case "sms":
@@ -28,5 +32,10 @@ public class GetMessageFactory {
             default:
                 throw new IllegalArgumentException("Unknown Channel"+this.channelName);
         }
+    }
+
+    @Override
+    public CallingChannel getCallingChannel() {
+        return null;
     }
 }
