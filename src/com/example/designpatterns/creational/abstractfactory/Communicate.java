@@ -6,7 +6,6 @@ import com.example.designpatterns.creational.abstractfactory.communicationfactor
 
 public class Communicate {
     public static void main(String[] args) {
-//        Abstract Factory
         FactoryCreator factoryCreator = new FactoryCreator("message", "email");
         AbstractChannelFactory factory = factoryCreator.getFactory();
         System.out.println(factory.toString());
